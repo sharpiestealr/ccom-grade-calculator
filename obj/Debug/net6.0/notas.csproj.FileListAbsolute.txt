@@ -1,0 +1,15 @@
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\notas.exe
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\notas.deps.json
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\notas.runtimeconfig.json
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\notas.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\notas.pdb
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.csproj.AssemblyReference.cache
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.AssemblyInfoInputs.cache
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.AssemblyInfo.cs
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.csproj.CoreCompileInputs.cache
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\refint\notas.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.pdb
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.genruntimeconfig.cache
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\ref\notas.dll
