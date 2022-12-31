@@ -1,5 +1,5 @@
 ﻿
-using delegado;
+using dele;
 using redacao;
 using System.Collections;
 using System.ComponentModel;
@@ -31,29 +31,6 @@ while (count != committee)
     ccom.Add(delegado);
     count++;
 }
-
-//Aspose.Cells.License licenseListExport = new();
-//licenseListExport.SetLicense("Aspose.Cells.lic");
-
-Workbook workbookExportList = new();
-
-Delegado[] ccomArray = new Delegado[committee];
-
-count = 0;
-
-while (count != committee)
-{
-    ccomArray[count] = ccom[count];
-    count++;
-}
-
-for (int m = 0; m!=ccomArray.Length; m++)
-{ 
-    Worksheet worksheetWithExportedList = workbookExportList.Worksheets[0];
-    worksheetWithExportedList.Cells.ImportObjectArray(ccomArray, m+1, 1, true);
-}
-
-workbookExportList.Save("notas - ccom 2023.xlsx");
 
 count = 0;
 Console.Clear();
@@ -114,7 +91,8 @@ float proactivity(List<Article> artigos, int crossover)
     }
 
     if (artigos.Count == 0) { grade = 0; }
-    else if (artigos.Count < 4 && artigos.Count > 0) { grade = artigos.Count; }
+    else if (artigos.Count < 4) { grade = artigos.Count; }
+    else if (artigos.Count == 4) { grade = 5; }
     else { grade = (8*a + b + crossover)/10; }
 
     return grade;

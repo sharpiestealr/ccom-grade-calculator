@@ -6,7 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace delegado
+namespace dele
 {
     public class Delegado
     {
