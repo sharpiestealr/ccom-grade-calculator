@@ -13,3 +13,17 @@ C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\refint
 C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.pdb
 C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.genruntimeconfig.cache
 C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\ref\notas.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\Interop.Microsoft.Office.Core.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\Interop.ACTIVEXLib.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Access.Dao.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.csproj.ResolveComReference.cache
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\Aspose.Cells.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\SkiaSharp.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\pinki\OneDrive\Documents\fórum faap\2023\notas\obj\Debug\net6.0\notas.csproj.CopyComplete

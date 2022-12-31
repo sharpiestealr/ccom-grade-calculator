@@ -1,24 +1,59 @@
 ﻿
 using delegado;
+using redacao;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
 using System.Numerics;
+using Aspose.Cells;
+
 
 Console.WriteLine("Quantos delegados há no comitê?");
 int committee = Convert.ToInt16(Console.ReadLine());
 int count = 0;
 
-List<Delegado> ccom = new List<Delegado>();
+List<Delegado> ccom = new();
 
 while (count != committee)
 {
     Console.WriteLine("----------------------------\nDelegado "+(count+1)+"\nNome do delegado:");
+#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
     string name = Console.ReadLine();
-    int a = articles(), b = bonus(), c = crossover();
-    float p = proactivity(a, b, c);
-    double q = quality(a, b), at = attitude(), d = dpo();
-    Delegado delegado = new Delegado(name, p, q, at, d, final(p, q, at, d));
+#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+    List<Article> a = new(articles());
+    int c = crossover();
+    float p = proactivity(a, c);
+    double q = quality(a), at = attitude(), d = dpo();
+#pragma warning disable CS8604 // Possible null reference argument.
+    Delegado delegado = new(name, a, p, q, at, d, final(p, q, at, d));
+#pragma warning restore CS8604 // Possible null reference argument.
     ccom.Add(delegado);
     count++;
 }
+
+//Aspose.Cells.License licenseListExport = new();
+//licenseListExport.SetLicense("Aspose.Cells.lic");
+
+Workbook workbookExportList = new();
+
+Delegado[] ccomArray = new Delegado[committee];
+
+count = 0;
+
+while (count != committee)
+{
+    ccomArray[count] = ccom[count];
+    count++;
+}
+
+for (int m = 0; m!=ccomArray.Length; m++)
+{ 
+    Worksheet worksheetWithExportedList = workbookExportList.Worksheets[0];
+    worksheetWithExportedList.Cells.ImportObjectArray(ccomArray, m+1, 1, true);
+}
+
+workbookExportList.Save("notas - ccom 2023.xlsx");
 
 count = 0;
 Console.Clear();
@@ -34,16 +69,31 @@ Console.ReadKey();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-int articles()
+List<Article> articles()
 {
-    Console.WriteLine("Quantos artigos o delegado escreveu para o seu comitê?");
-    return Convert.ToInt16(Console.ReadLine());
-}
+    bool bonus = false;
+    int quantidade, artigo;
+    double grade, roleplay;
+    List<Article> article = new();
 
-int bonus()
-{
-    Console.WriteLine("Quantos artigos adicionais o delegado escreveu?");
-    return Convert.ToInt16(Console.ReadLine());
+    Console.WriteLine("Quantos artigos o delegado escreveu?");
+    quantidade = Convert.ToInt16(Console.ReadLine());
+
+    for (int i=0; i<quantidade; i++)
+    {
+        Console.WriteLine("O artigo "+(i+1)+" foi escrito para um comitê? (true ou false)");
+        artigo = Convert.ToInt16(Console.ReadLine());
+        if (artigo == 1) {bonus= true;}
+        Console.WriteLine("Qual a nota da redação do artigo "+(i+1)+" ?");
+        grade = Convert.ToDouble(Console.ReadLine());
+        Console.WriteLine("Qual a nota da linha editorial do artigo "+(i+1)+" ?");
+        roleplay = Convert.ToDouble(Console.ReadLine());
+
+        Article artigos = new(bonus, grade, roleplay);
+        article.Add(artigos);
+    }
+
+    return article;
 }
 
 int crossover()
@@ -52,32 +102,32 @@ int crossover()
     return Convert.ToInt16(Console.ReadLine());
 }
 
-float proactivity(int articles, int bonus, int crossover)
+float proactivity(List<Article> artigos, int crossover)
 {
-    if ((articles + bonus) < 4)
-    { 
-        return 4;
+    int a = 0, b = 0;
+    float grade;
+
+    for (int j=0; j!=artigos.Count; j++)
+    {
+        if (artigos[j].committee == false) { b++; }
+        else { a++; }
     }
-    else 
-    { 
-        return (7 * articles + 2 * bonus + crossover) / 10;
-    }
+
+    if (artigos.Count == 0) { grade = 0; }
+    else if (artigos.Count < 4 && artigos.Count > 0) { grade = artigos.Count; }
+    else { grade = (8*a + b + crossover)/10; }
+
+    return grade;
 }
 
-double quality(int articles, int bonus)
+double quality(List<Article> articles)
 {
-    double grade = 0, roleplay = 0;
-        
-    for (int i=0; i<(articles+bonus); i++)
-    {
-        Console.WriteLine("Qual a nota da redação do artigo "+(i+1)+" ?");
-        grade += Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("Qual a nota da linha editorial do artigo "+(i+1)+" ?");
-        roleplay += Convert.ToDouble(Console.ReadLine());
-    }
-
-    double g = grade/articles, r = roleplay/articles;
-    double q = 0;
+    double g=0, r=0, q;
+    for(int k = 0; k!=articles.Count; k++) { g += articles[k].grammar; }
+    for (int l = 0; l != articles.Count; l++) { r += articles[l].writing; }
+   
+    g /= articles.Count;
+    r /= articles.Count;
     
     if (g<5 && r<5)
         { 
@@ -99,16 +149,16 @@ double quality(int articles, int bonus)
 double attitude()
 {
     Console.WriteLine("Qual a nota para a postura do delegado durante o evento?");
-    return (Convert.ToDouble(Console.ReadLine()))/10;
+    return Convert.ToDouble(Console.ReadLine());
 }
 
 double dpo()
 {
     Console.WriteLine("Qual a nota para a primeira história do delegado?");
-    return (Convert.ToDouble(Console.ReadLine()))/10;
+    return Convert.ToDouble(Console.ReadLine());
 }
 
 double final(float proactivity, double quality, double attitude, double dpo)
 {
-    return ( ( (.4*proactivity + .5*quality + attitude) *.9) + dpo);
+    return ( ( (.3*proactivity + .6*quality + .1*attitude) *.8) + .2*dpo);
 }
